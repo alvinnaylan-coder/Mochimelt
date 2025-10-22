@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MochiMelt - Jual Beli Mochi Online</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #e6e6fa; /* Light Lavender */
+            color: #4a4a6a; /* Dark Lavender */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: #d8bfd8; /* Thistle */
+            border: 2px solid #d8bfd8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #d8bfd8;
+            color: white;
+        }
+
+        .nav-button.active {
+            background-color: #d8bfd8;
+            color: white;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-item {
+            background-color: #f0f8ff; /* AliceBlue */
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .cart {
+            background-color: #f0f8ff; /* AliceBlue */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart li {
+            color: #4a4a6a; /* Dark Lavender */
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkout-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .checkout-form label {
+            font-weight: bold;
+            color: #9370db; /* Medium Purple */
+        }
+
+        .checkout-form input, .checkout-form textarea, .checkout-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #c0c0d8; /* Lighter border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .checkout-form button {
+            background-color: #8fbc8f; /* Dark Sea Green */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-form button:hover {
+            background-color: #6b8e23; /* Olive Drab */
+        }
+    </style>
+</head>
+<body>
+
+    <header style="background-color: #ffffff; padding: 20px 0; text-align: center; border-bottom: 2px solid #dcdcdc;">
+        <h1 style="color: #9370db; margin: 0;">MochiMelt</h1>
+        <p style="color: #6a5acd; margin-top: 5px;">Tempat terbaik untuk membeli mochi favorit Anda!</p>
+        <div style="margin-top: 15px;">
+            <button class="nav-button active" onclick="showPage(event, 'home-page')">Beranda</button>
+            <button class="nav-button" onclick="showPage(event, 'purchase-page')">Pembelian</button>
+            <button class="nav-button" onclick="showPage(event, 'about-us-page')">Tentang Kami</button>
+        </div>
+    </header>
+
+    <div class="main-content" id="home-page">
+        <h2 style="color: #9370db; border-bottom: 2px solid #9370db; padding-bottom: 10px;">Selamat Datang di MochiMelt XII-J kelompok 6!</h2>
+        <p>✨ **Kenalin, MOCHIMELT! Mochi kekinian yang lagi hits & siap bikin hari kamu lebih manis!** ✨</p>
+        <p>Pernah nggak sih kamu lagi suntuk, capek, atau bosen, terus tiba-tiba nemu cemilan yang lembut, manis, dan bikin bahagia di gigitan pertama? 😍</p>
+        <p>Nah, di sinilah MochiMelt masuk buat nemenin kamu! MochiMelt bukan mochi biasa — ini snack premium yang dibuat dengan bahan pilihan, tekstur kenyal lembut yang meleleh di mulut, dan rasa-rasa kekinian yang bikin kamu jatuh cinta dari suapan pertama.</p>
+        <p>✨ **Dari yang klasik sampai yang unik, semua ada!**</p>
+        <ul style="list-style-type: none; padding: 0;">
+            <li style="margin-bottom: 5px;">**🍫 Coklat melt** — manisnya pas, cocok buat penggemar rasa klasik</li>
+            <li style="margin-bottom: 5px;">**🧀 Keju** — creamy & gurih, bikin nagih</li>
+            <li style="margin-bottom: 5px;">**🍵 Matcha** — rasa matcha asli yang calming banget</li>
+            <li style="margin-bottom: 5px;">**☕ Tiramisu** — mewah, kayak ngopi di kafe</li>
+            <li style="margin-bottom: 5px;">**🥭 Mangga** — segar dan tropikal banget!</li>
+            <li style="margin-bottom: 5px;">**🍓 Strawberry** — manis-asamnya pas, favorit banyak orang</li>
+            <li style="margin-bottom: 5px;">**🍪 Cookies & Cream** — kombinasi modern yang anak muda banget</li>
+            <li style="margin-bottom: 5px;">**🍠 Taro** — lembut, manis, dan aromatik</li>
+        </ul>
+        <p>💥 Cocok buat semua usia, tapi terutama anak muda yang pengen ngemil dengan gaya. Mau buat nemenin kerja, nugas, nonton drama, atau sekadar penghilang stres, MochiMelt selalu jadi pilihan yang tepat.</p>
+        <p>📣 **Siap-siap jatuh cinta sama MochiMelt!**</p>
+        <ul style="list-style-type: none; padding: 0;">
+            <li style="margin-bottom: 5px;">Rasa enak ✅</li>
+            <li style="margin-bottom: 5px;">Tekstur lembut ✅</li>
+            <li style="margin-bottom: 5px;">Varian lengkap ✅</li>
+            <li style="margin-bottom: 5px;">Kemasan lucu & kekinian ✅</li>
+            <li style="margin-bottom: 5px;">Bikin hari kamu lebih seru & manis ✅✅✅</li>
+        </ul>
+        <p>Yuk cobain sekarang dan rasain sendiri kenapa banyak yang bilang:</p>
+        <p style="font-style: italic; font-weight: bold;">"Sekali coba, susah lupa!"</p>
+        
+        <hr style="border: 0; border-top: 1px solid #dcdcdc; margin: 40px 0;">
+
+        <h2 style="color: #9370db;">Alamat Kami</h2>
+        <p>Jl. Raya Dramaga</p>
+    </div>
+
+    <div class="main-content hidden" id="purchase-page">
+        <h2 style="color: #9370db; border-bottom: 2px solid #9370db; padding-bottom: 10px;">Pembelian</h2>
+        <section class="product-list">
+            <article class="product-item">
+                <img src="https://fullofplants.com/wp-content/uploads/2022/01/vegan-matcha-nama-white-chocolate-mochi-dairy-free-tender-japanese-inspired-dairy-free-thumb.jpg" alt="Mochi Rasa Matcha">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Matcha</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 7.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Matcha" data-price="15000" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://rilis.id/image/2024/01/07XM1kJ51_EF615A6A-66C3-4B52-9DEC-829D01A32ADF.jpeg" alt="Mochi Rasa Cokelat">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Cokelat</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 5.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Cokelat" data-price="14500" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://i.ytimg.com/vi/RxislRnccRE/sddefault.jpg" alt="Mochi Rasa Strawberry">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Strawberry</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 10.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Strawberry" data-price="16000" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://asset.kompas.com/crops/Ica4MQzQmsU3Gtd_uphHSysfOu4=/0x0:1000x667/1200x800/data/photo/2020/06/14/5ee6083ca6463.jpg" alt="Mochi Rasa Keju">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Keju</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 5.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Keju" data-price="17000" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://image.idntimes.com/post/20220516/2022-05-16-38-2f4132898ea2dcc416ec67239a566a64-eedbdbf56bf4d00009ede86a2aaf2879.png" alt="Mochi Rasa Tiramisu">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Tiramisu</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 8.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Tiramisu" data-price="18500" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://static.promediateknologi.id/crop/52x500:1035x1292/0x0/webp/photo/p2/74/2025/01/09/Screenshot_20250109_203100-4118332656.jpg" alt="Mochi Rasa Mangga">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Mangga</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 10.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Mangga" data-price="15500" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://cdn.pojoknulis.com/uploads/2023/07/1690266212-mochi-oreo.jpg.webp" alt="Mochi Rasa Cookies n Cream">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Cookies n Cream</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 8.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Cookies n Cream" data-price="17500" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+
+            <article class="product-item">
+                <img src="https://sugaryums.com/wp-content/uploads/2021/11/Taro-mochi-SugarYums-2.jpg" alt="Mochi Rasa Taro">
+                <h3 style="color: #444; margin: 10px 0;">Mochi Rasa Taro</h3>
+                <p style="color: #777;">Harga: <strong style="color: #d8bfd8;">Rp 5.000</strong></p>
+                <button class="add-to-cart-btn" data-name="Mochi Rasa Taro" data-price="16500" style="background-color: #d8bfd8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Beli Sekarang</button>
+            </article>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #dcdcdc; margin: 40px 0;">
+
+        <h2 style="color: #9370db; border-bottom: 2px solid #9370db; padding-bottom: 10px;">Keranjang Belanja</h2>
+        <section class="cart">
+            <ul id="cart-items" style="list-style: none; padding: 0;">
+                <li id="empty-cart-message" style="color: #6a5acd; font-style: italic;">Keranjang Anda kosong.</li>
+            </ul>
+            <div class="cart-summary" style="margin-top: 20px; text-align: right;">
+                <p style="font-size: 18px; font-weight: bold;">Total: <span id="cart-total" style="color: #9370db;">Rp 0</span></p>
+                <button id="checkout-button" style="background-color: #9370db; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s;">Checkout</button>
+            </div>
+
+            <div id="checkout-form" class="checkout-form hidden">
+                <h3 style="color: #9370db;">Informasi Pengiriman</h3>
+                <label for="full-name">Nama Lengkap:</label>
+                <input type="text" id="full-name" name="full-name" required>
+
+                <label for="address">Alamat Lengkap:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="phone-number">Nomor HP:</label>
+                <input type="tel" id="phone-number" name="phone-number" required>
+
+                <label for="payment-method">Metode Pembayaran:</label>
+                <select id="payment-method" name="payment-method" required onchange="toggleBankOptions()">
+                    <option value="" disabled selected>Pilih Metode Pembayaran</option>
+                    <option value="ovo">OVO</option>
+                    <option value="dana">DANA</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="bank-transfer">Transfer Bank</option>
+                    <option value="cod">COD (Bayar di Tempat)</option>
+                </select>
+
+                <div id="bank-options" class="hidden" style="margin-top: 10px;">
+                    <label for="bank-name">Pilih Bank:</label>
+                    <select id="bank-name" name="bank-name">
+                        <option value="" disabled selected>Pilih Bank</option>
+                        <option value="bri">Bank BRI</option>
+                        <option value="bni">Bank BNI</option>
+                        <option value="mandiri">Bank Mandiri</option>
+                    </select>
+                </div>
+
+                <button onclick="processCheckout()">Selesaikan Pembelian</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="main-content hidden" id="about-us-page">
+        <h2 style="color: #9370db; border-bottom: 2px solid #9370db; padding-bottom: 10px;">Tentang Kami</h2>
+        <p>MochiMelt didirikan dengan satu misi: membawa kebahagiaan melalui gigitan mochi yang tak terlupakan. Kami percaya, setiap mochi yang kami buat harus lebih dari sekadar camilan—ia harus menjadi pengalaman.</p>
+        <p>Dengan bahan-bahan terbaik, resep orisinal, dan sentuhan cinta, kami menciptakan mochi dengan tekstur yang sangat lembut, kenyal, dan isian melimpah yang akan membuat Anda ketagihan. Kami terus berinovasi untuk menghadirkan varian rasa kekinian yang unik, memastikan selalu ada kejutan baru di setiap kotak MochiMelt.</p>
+        <p>MochiMelt bukan hanya tentang mochi, tapi juga tentang berbagi momen manis. Baik untuk merayakan sesuatu, menemani saat santai, atau sebagai hadiah untuk orang terkasih, MochiMelt selalu menjadi pilihan yang tepat.</p>
+        <p style="font-style: italic; font-weight: bold;">Terima kasih telah memilih MochiMelt sebagai teman manis Anda!</p>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: #777; font-size: 14px; background-color: #ffffff; margin-top: 20px;">
+        <p>&copy; 2025 MochiMelt. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        const pages = document.querySelectorAll('.main-content');
+        const navButtons = document.querySelectorAll('.nav-button');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const cartItemsList = document.getElementById('cart-items');
+        const cartTotalSpan = document.getElementById('cart-total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const checkoutButton = document.getElementById('checkout-button');
+        const checkoutForm = document.getElementById('checkout-form');
+        const paymentMethodSelect = document.getElementById('payment-method');
+        const bankOptionsDiv = document.getElementById('bank-options');
+        const bankNameSelect = document.getElementById('bank-name');
+        let total = 0;
+
+        function showPage(event, pageId) {
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            if (event) {
+                event.target.classList.add('active');
+            }
+        }
+
+        function updateTotal() {
+            cartTotalSpan.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            if (total === 0) {
+                if (emptyCartMessage) {
+                    emptyCartMessage.style.display = 'block';
+                }
+                checkoutButton.disabled = true;
+            } else {
+                if (emptyCartMessage) {
+                    emptyCartMessage.style.display = 'none';
+                }
+                checkoutButton.disabled = false;
+            }
+        }
+
+        function toggleBankOptions() {
+            if (paymentMethodSelect.value === 'bank-transfer') {
+                bankOptionsDiv.classList.remove('hidden');
+            } else {
+                bankOptionsDiv.classList.add('hidden');
+                bankNameSelect.value = '';
+            }
+        }
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = parseFloat(button.getAttribute('data-price'));
+                
+                const newCartItem = document.createElement('li');
+                newCartItem.innerHTML = `
+                    <span>${productName} - Rp ${productPrice.toLocaleString('id-ID')}</span>
+                    <button class="remove-from-cart-btn" style="background-color: #e79999; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; font-size: 12px; transition: background-color 0.3s;">Batalkan Pembelian</button>
+                `;
+                
+                newCartItem.setAttribute('data-price', productPrice);
+
+                cartItemsList.appendChild(newCartItem);
+                total += productPrice;
+                updateTotal();
+
+                const removeButton = newCartItem.querySelector('.remove-from-cart-btn');
+                removeButton.addEventListener('click', () => {
+                    const priceToRemove = parseFloat(newCartItem.getAttribute('data-price'));
+                    cartItemsList.removeChild(newCartItem);
+                    total -= priceToRemove;
+                    updateTotal();
+                });
+            });
+        });
+
+        checkoutButton.addEventListener('click', () => {
+            checkoutForm.classList.toggle('hidden');
+            if (!checkoutForm.classList.contains('hidden')) {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        function processCheckout() {
+            const fullName = document.getElementById('full-name').value;
+            const address = document.getElementById('address').value;
+            const phoneNumber = document.getElementById('phone-number').value;
+            const paymentMethod = paymentMethodSelect.value;
+            const bankName = bankNameSelect.value;
+            let paymentDetail = '';
+            
+            if (!fullName || !address || !phoneNumber || !paymentMethod) {
+                alert('Harap lengkapi semua data pengiriman dan pilih metode pembayaran.');
+                return;
+            }
+
+            if (paymentMethod === 'bank-transfer') {
+                if (!bankName) {
+                    alert('Harap pilih bank untuk transfer.');
+                    return;
+                }
+                paymentDetail = `Transfer Bank (${bankName.toUpperCase()})`;
+                alert(`Pesanan berhasil!
+Nama: ${fullName}
+Alamat: ${address}
+Nomor HP: ${phoneNumber}
+Metode Pembayaran: ${paymentDetail}
+Total Pembayaran: Rp ${total.toLocaleString('id-ID')}
+
+Silakan lakukan transfer ke rekening ${bankName.toUpperCase()} dengan total nominal di atas. Setelah transfer, kirimkan bukti pembayaran melalui WhatsApp ke nomor admin kami.`);
+            
+            } else if (paymentMethod === 'cod') {
+                paymentDetail = `COD (Bayar di Tempat)`;
+                alert(`Pesanan berhasil!
+Nama: ${fullName}
+Alamat: ${address}
+Nomor HP: ${phoneNumber}
+Metode Pembayaran: ${paymentDetail}
+Total Pembayaran: Rp ${total.toLocaleString('id-ID')}
+
+Pesanan Anda akan segera diproses. Siapkan uang tunai sesuai total pembayaran saat kurir tiba.`);
+
+            } else if (paymentMethod === 'dana') {
+                alert(`Anda akan diarahkan ke halaman pembayaran DANA.`);
+                window.open('https://www.dana.id/', '_blank');
+            } else if (paymentMethod === 'ovo') {
+                alert(`Anda akan diarahkan ke halaman pembayaran OVO.`);
+                window.open('https://www.ovo.id/', '_blank');
+            
+            } else if (paymentMethod === 'whatsapp') {
+                paymentDetail = 'WhatsApp';
+                const adminNumber = '6281234567890';
+                const message = `Halo admin MochiMelt, saya ingin memesan mochi dengan detail sebagai berikut:
+Nama: ${fullName}
+Alamat: ${address}
+Nomor HP: ${phoneNumber}
+Total Pembayaran: Rp ${total.toLocaleString('id-ID')}
+Mohon berikan detail pembayaran. Terima kasih!`;
+                
+                const encodedMessage = encodeURIComponent(message);
+                
+                window.open(`https://wa.me/${adminNumber}?text=${encodedMessage}`, '_blank');
+                
+                alert(`Pesanan berhasil!
+Nama: ${fullName}
+Alamat: ${address}
+Nomor HP: ${phoneNumber}
+Metode Pembayaran: ${paymentDetail}
+Total Pembayaran: Rp ${total.toLocaleString('id-ID')}
+
+Anda akan diarahkan ke WhatsApp untuk menyelesaikan pembayaran. Mohon kirimkan detail pesanan ini ke admin kami.`);
+            }
+                
+            cartItemsList.innerHTML = `<li id="empty-cart-message" style="color: #6a5acd; font-style: italic;">Keranjang Anda kosong.</li>`;
+            total = 0;
+            updateTotal();
+            checkoutForm.classList.add('hidden');
+            document.getElementById('full-name').value = '';
+            document.getElementById('address').value = '';
+            document.getElementById('phone-number').value = '';
+            paymentMethodSelect.value = '';
+            toggleBankOptions();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(null, 'home-page');
+            document.querySelector('[onclick="showPage(event, \'home-page\')"]').classList.add('active');
+            updateTotal();
+        });
+    </script>
+
+</body>
+</html>
